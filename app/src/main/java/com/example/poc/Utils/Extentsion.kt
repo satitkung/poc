@@ -1,5 +1,6 @@
 package com.example.poc.Utils
 
+import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.drawable.BitmapDrawable
@@ -18,4 +19,8 @@ fun Drawable.toBitmap(): Bitmap {
         setBounds(0, 0, canvas.width, canvas.height)
         draw(canvas)
     }
+}
+
+fun Bitmap.toDrawable(context: Context): Drawable {
+    return BitmapDrawable(context.resources, this)
 }
