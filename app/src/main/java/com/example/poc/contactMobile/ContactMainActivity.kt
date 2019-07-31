@@ -18,6 +18,7 @@ class ContactMainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contact_main)
+//        setupViewIntentPickup()
 
         requestPermissionContact()
     }
