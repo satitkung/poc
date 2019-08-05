@@ -15,15 +15,21 @@ import kotlinx.android.synthetic.main.activity_test_load_image.*
 import android.graphics.Bitmap
 import android.content.ContextWrapper
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
 import android.graphics.BitmapFactory
 import android.os.Build
+import android.provider.Settings
 import com.example.poc.Utils.PATH_LOGO_APP
 import com.example.poc.Utils.SharedPreferenceManager
 import com.example.poc.Utils.toBitmap
 import com.tbruyelle.rxpermissions2.RxPermissions
 
 import java.io.*
+import android.net.Uri.fromParts
+import android.net.Uri
+import android.widget.Button
+import com.example.poc.Utils.BaseAlertDialogFragment
 
 
 const val URL_PICTURE_1 = "https://i.ytimg.com/vi/6R5UveljmOQ/maxresdefault.jpg"
@@ -39,7 +45,14 @@ class TestLoadImageActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test_load_image)
 
-        requestPermission()
+        BaseAlertDialogFragment.Builder()
+            .title("test")
+            .content("fu")
+            .build()
+            .run {
+                show(supportFragmentManager, "BaseAlertDialogFragment")
+            }
+//        requestPermission()
     }
 
     @SuppressLint("CheckResult")
@@ -53,6 +66,14 @@ class TestLoadImageActivity : AppCompatActivity() {
                     }
                 }
         }
+
+        //Show setting of current application
+//        val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+//        val uri = Uri.fromParts("package", packageName, null)
+//        intent.data = uri
+//        startActivityForResult(intent, 101)
+
+
     }
 
     private fun setupView(appLogoLoaded: Boolean) {

@@ -8,4 +8,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="AlertDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/alert_zoom_in</item>
+        <item name="android:windowExitAnimation">@anim/alert_zoom_out</item>
+    </style>
+
 </resources>
