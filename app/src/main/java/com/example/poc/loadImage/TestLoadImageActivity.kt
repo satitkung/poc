@@ -48,6 +48,7 @@ class TestLoadImageActivity : AppCompatActivity() {
         BaseAlertDialogFragment.Builder()
             .title("test")
             .content("fu")
+            .titleButton("OK")
             .build()
             .run {
                 show(supportFragmentManager, "BaseAlertDialogFragment")
@@ -72,7 +73,6 @@ class TestLoadImageActivity : AppCompatActivity() {
 //        val uri = Uri.fromParts("package", packageName, null)
 //        intent.data = uri
 //        startActivityForResult(intent, 101)
-
 
     }
 
@@ -109,7 +109,8 @@ class TestLoadImageActivity : AppCompatActivity() {
                 })
                 .into(img_1)
         } else {
-            img_1.setImageBitmap(loadImageFromStorage(sharedPreferences.getStirng(PATH_LOGO_APP)))
+//            img_1.setImageBitmap(loadImageFromStorage(sharedPreferences.getStirng(PATH_LOGO_APP)))
+            img_1.setImageBitmap(loadImageFromStorage(sharedPreferences.getData(PATH_LOGO_APP)))
         }
     }
 
@@ -138,7 +139,7 @@ class TestLoadImageActivity : AppCompatActivity() {
         }
     }
 
-    private fun loadImageFromStorage(path: String): Bitmap? {
+    private fun loadImageFromStorage(path: String?): Bitmap? {
         var b: Bitmap? = null
         try {
             val f = File(path, "app_logo.jpg")

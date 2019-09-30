@@ -24,3 +24,13 @@ fun Drawable.toBitmap(): Bitmap {
 fun Bitmap.toDrawable(context: Context): Drawable {
     return BitmapDrawable(context.resources, this)
 }
+
+fun String.replaceMobileNumberTHCountryCode(): String {
+    val regEx = "[^0-9]".toRegex()
+    val digitNumber = this.replace(regEx,"")
+    return if (digitNumber.startsWith("66")) {
+        digitNumber.replaceFirst("66", "0")
+    } else {
+        digitNumber
+    }
+}

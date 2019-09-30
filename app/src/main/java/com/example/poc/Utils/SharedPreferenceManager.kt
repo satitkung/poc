@@ -8,7 +8,7 @@ const val PATH_LOGO_APP = "path_logo_app"
 @SuppressLint("CommitPrefEdits")
 class SharedPreferenceManager(val context: Context) {
 
-    private val sharedPreferences by lazy {
+    val sharedPreferences by lazy {
         context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
     }
 
@@ -37,5 +37,15 @@ class SharedPreferenceManager(val context: Context) {
 
     fun getInt(key: String): Int {
         return sharedPreferences.getInt(key, 0)
+    }
+
+    inline fun <reified T> getData(key: String): T? {
+        return when(T::class) {
+            String::class -> sharedPreferences.getString(key, "") as T
+            Int::class -> sharedPreferences.getInt(key, 0) as T
+            Boolean::class -> sharedPreferences.getBoolean(key, false) as T
+            else -> sharedPreferences.getString(key, "") as T
+        }
+//        return sharedPreferences.getString(key, "") as T
     }
 }

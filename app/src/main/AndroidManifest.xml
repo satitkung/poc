@@ -16,6 +16,24 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="GoogleAppIndexingWarning">
+
+        <service
+                android:name=".notification.FirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT"/>
+            </intent-filter>
+        </service>
+
+
+        <meta-data
+                android:name="com.google.firebase.messaging.default_notification_channel_id"
+                android:value="99" />
+
+
+        <activity android:name=".notification.NotificationActivity">
+        </activity>
+        <activity android:name=".showHideView.ShowHideViewActivity">
+        </activity>
         <activity android:name=".loadImage.TestLoadImageActivity">
         </activity>
         <activity android:name=".contactMobile.ContactMainActivity">

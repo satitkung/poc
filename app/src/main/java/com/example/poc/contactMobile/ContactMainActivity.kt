@@ -6,11 +6,17 @@ import android.os.Bundle
 import com.example.poc.R
 import android.provider.ContactsContract
 import android.content.Intent
+import android.content.pm.PackageManager
+import android.util.Log
 import android.view.View
+import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import android.widget.TextView
 import android.widget.LinearLayout
+import androidx.core.app.ActivityCompat
+import androidx.core.content.ContextCompat
 import com.tbruyelle.rxpermissions2.RxPermissions
+import kotlinx.android.synthetic.main.activity_contact_main.*
 
 const val SELECT_PHONE_NUMBER = 1
 class ContactMainActivity : AppCompatActivity() {
@@ -21,6 +27,19 @@ class ContactMainActivity : AppCompatActivity() {
 //        setupViewIntentPickup()
 
         requestPermissionContact()
+//        requestPermissionContactNormal()
+    }
+
+    private fun requestPermissionContactNormal() {
+        val permissionStatus = ContextCompat.checkSelfPermission(this, Manifest.permission.READ_CONTACTS)
+        if (permissionStatus != PackageManager.PERMISSION_GRANTED) {
+            if (ActivityCompat.shouldShowRequestPermissionRationale(this, Manifest.permission.READ_CONTACTS)) {
+            } else {
+                ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_CONTACTS), 42)
+            }
+        } else {
+
+        }
     }
 
     @SuppressLint("CheckResult")
@@ -40,7 +59,6 @@ class ContactMainActivity : AppCompatActivity() {
         startActivityForResult(i, SELECT_PHONE_NUMBER)
     }
 
-    @SuppressLint("Recycle")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == SELECT_PHONE_NUMBER && resultCode == RESULT_OK) {
@@ -62,7 +80,13 @@ class ContactMainActivity : AppCompatActivity() {
                 val number = cursor.getString(numberIndex)
                 val displayName = cursor.getString(displayNameIndex)
 
-
+                val regex = "[^0-9]".toRegex()
+                val digit = number.replace(regex,"")
+                if (digit.startsWith("66")) {
+                    checkSizeString(digit.replaceFirst("66", "0"))
+                } else {
+                    checkSizeString(digit)
+                }
                 addTextView(number, "Number")
                 addTextView(displayName, "DisplayName")
 
@@ -78,4 +102,13 @@ class ContactMainActivity : AppCompatActivity() {
         txt.text = "$column : $textData"
         linearLayout.addView(txt)
     }
+
+    private fun checkSizeString(number: String) {
+        if (number.length > 10) {
+            promptpayEditText.setText(number.substring(0, 10))
+        } else {
+            promptpayEditText.setText(number)
+        }
+    }
+
 }

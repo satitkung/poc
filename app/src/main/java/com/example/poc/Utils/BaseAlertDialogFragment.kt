@@ -28,7 +28,6 @@ class BaseAlertDialogFragment : DialogFragment() {
     private var titleButton: String? = null
     private var onPressButtonOk: (() -> Unit)? = null
 
-    private var dialogClickListener: DialogOnClickListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,11 +46,7 @@ class BaseAlertDialogFragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        dialogClickListener = if (parentFragment != null) {
-            parentFragment as DialogOnClickListener
-        } else {
-            activity as DialogOnClickListener
-        }
+
 
         image?.let {
             if ( it != 0 ) {
@@ -77,7 +72,6 @@ class BaseAlertDialogFragment : DialogFragment() {
             acceptButton.setOnClickListener {
                 dismiss()
                 onPressButtonOk?.invoke()
-                dialogClickListener?.onDialogAcceptClickListener(it)
             }
         } ?: run {
             acceptButton.visibility = View.GONE
@@ -137,10 +131,6 @@ class BaseAlertDialogFragment : DialogFragment() {
 //
 //    }
 
-
-    interface DialogOnClickListener {
-        fun onDialogAcceptClickListener(v: View)
-    }
 
 
     companion object {
