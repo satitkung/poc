@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "375390365181",
-    "firebase_url": "https://poc-project-3a0d5.firebaseio.com",
-    "project_id": "poc-project-3a0d5",
-    "storage_bucket": "poc-project-3a0d5.appspot.com"
+    "project_number": "840806315834",
+    "firebase_url": "https://poc-everything.firebaseio.com",
+    "project_id": "poc-everything",
+    "storage_bucket": "poc-everything.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:375390365181:android:8f28b0e11c98d5bf",
+        "mobilesdk_app_id": "1:840806315834:android:bb040e40a527a016fa0203",
         "android_client_info": {
           "package_name": "com.example.poc"
         }
       },
       "oauth_client": [
         {
-          "client_id": "375390365181-fms4e0rp0criejeg2unajtjcgonqebqa.apps.googleusercontent.com",
+          "client_id": "840806315834-vhoueaptpu45j3t9odnmm0sgirj835kl.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.example.poc",
@@ -23,20 +23,20 @@
           }
         },
         {
-          "client_id": "375390365181-55m1qfmslq0dj44bos3ugkbqq7b84s03.apps.googleusercontent.com",
+          "client_id": "840806315834-7se3n4bn8pd1utcem03or1o1k98iqi06.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBe7BDSjsKSV9ClOkyRxpD0iytkk8pD2X8"
+          "current_key": "AIzaSyDWgmDWh-sqAbreCqPjv13k6EfVF7LVP9U"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "375390365181-55m1qfmslq0dj44bos3ugkbqq7b84s03.apps.googleusercontent.com",
+              "client_id": "840806315834-7se3n4bn8pd1utcem03or1o1k98iqi06.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

@@ -2,6 +2,7 @@ package com.example.poc.contactMobile
 
 import android.Manifest
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.os.Bundle
 import com.example.poc.R
 import android.provider.ContactsContract
@@ -15,19 +16,32 @@ import android.widget.TextView
 import android.widget.LinearLayout
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
+import com.example.poc.Base.BaseActivity
+import com.example.poc.Base.Contextor
 import com.tbruyelle.rxpermissions2.RxPermissions
 import kotlinx.android.synthetic.main.activity_contact_main.*
 
 const val SELECT_PHONE_NUMBER = 1
-class ContactMainActivity : AppCompatActivity() {
+class ContactMainActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_contact_main)
+        Log.d("teess", "onCreate ContactMainActivity")
+
 //        setupViewIntentPickup()
 
-        requestPermissionContact()
+//        requestPermissionContact()
 //        requestPermissionContactNormal()
+
+
+    }
+
+    override fun onResume() {
+        super.onResume()
+        contact.text = Contextor.getInstance().context!!.getText(R.string.test_scanner)
+        Log.d("teess", "onResume ContactMainActivity")
+
     }
 
     private fun requestPermissionContactNormal() {
@@ -40,6 +54,11 @@ class ContactMainActivity : AppCompatActivity() {
         } else {
 
         }
+    }
+
+    override fun onBackPressed() {
+        setResult(Activity.RESULT_OK, Intent())
+        finish()
     }
 
     @SuppressLint("CheckResult")

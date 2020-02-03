@@ -49,6 +49,7 @@ class TestLoadImageActivity : AppCompatActivity() {
             .title("test")
             .content("fu")
             .titleButton("OK")
+            .onPressButtonOk {  }
             .build()
             .run {
                 show(supportFragmentManager, "BaseAlertDialogFragment")

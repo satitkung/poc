@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Poc</string>
+    <string name="test_load_image">ทดสอบโหลดรูป</string>
+    <string name="test_show_hide_view">ทดสอบโชว์หรือซ่อนวิว</string>
+    <string name="test_notification">ทดสอบส่งข้อความโนติ</string>
+    <string name="test_analytic">ทดสอบการควบคุม</string>
+    <string name="test_scanner">ทดสอบแสกน</string>
+    <string name="test_contact_list">ทดสอบนำข้อมูลการโทร</string>
+
+    <!--Start Edit Language-->
+    <string name="language__thai">ไทย</string>
+    <string name="language__eng">English</string>
+    <!--End Edit Language-->
+</resources>

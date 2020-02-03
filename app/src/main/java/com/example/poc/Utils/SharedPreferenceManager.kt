@@ -2,15 +2,17 @@ package com.example.poc.Utils
 
 import android.annotation.SuppressLint
 import android.content.Context
+import javax.inject.Singleton
 
 const val PREFS_NAME = "POC_TEST"
 const val PATH_LOGO_APP = "path_logo_app"
+const val DEFAULT_LANGUAGE = "defualt_language"
 @SuppressLint("CommitPrefEdits")
+@Singleton
 class SharedPreferenceManager(val context: Context) {
 
-    val sharedPreferences by lazy {
-        context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
-    }
+    val sharedPreferences = context.getSharedPreferences(PREFS_NAME, Context.MODE_PRIVATE)
+
 
     private val editor by lazy {
         sharedPreferences.edit()
